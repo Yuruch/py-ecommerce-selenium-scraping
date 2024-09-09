@@ -69,7 +69,7 @@ def parse_single_page(url: str, driver: webdriver.Chrome) -> List[Product]:
         if cookie_button:
             cookie_button[0].click()
     except (NoSuchElementException, ElementNotInteractableException):
-        print("Cookie button not found or already accepted")
+        pass
 
     while True:
         try:
@@ -102,7 +102,6 @@ def write_to_csv(filename: str, products: List[Product]) -> None:
 
 
 def get_all_products() -> None:
-    pass
     chrome_options = Options()
     chrome_options.add_argument("--headless")
     chrome_options.add_argument("--no-sandbox")
